@@ -10,12 +10,12 @@ importers:
       typescript: 4.1.3
     specifiers:
       '@ankylos/prettier-config': workspace:^0.2.0
-      '@kiwi/eslint-config': ^1.7.0
-      '@types/node': ^14.14.22
-      eslint: ^7.18.0
-      husky: ^4.3.8
-      prettier: ^2.2.1
-      typescript: ^4.1.3
+      '@kiwi/eslint-config': 1.7.0
+      '@types/node': 14.14.22
+      eslint: 7.18.0
+      husky: 4.3.8
+      prettier: 2.2.1
+      typescript: 4.1.3
   ankylos-cli:
     dependencies:
       chalk: 4.1.0
@@ -40,11 +40,11 @@ importers:
       typescript: 4.1.3
     specifiers:
       '@ankylos/types': workspace:^0.2.0
-      '@types/cli-progress': ^3.8.0
-      '@types/decompress': ^4.2.3
-      '@types/mv': ^2.1.0
-      '@types/node': ^14.14.22
-      '@types/rmfr': ^2.0.0
+      '@types/cli-progress': 3.8.0
+      '@types/decompress': 4.2.3
+      '@types/mv': 2.1.0
+      '@types/node': 14.14.22
+      '@types/rmfr': 2.0.0
       chalk: ^4.1.0
       cli-progress: ^3.8.2
       decompress: ^4.2.1
@@ -56,8 +56,8 @@ importers:
       mv: ^2.1.1
       rmfr: ^2.0.0
       tempy: ^1.0.0
-      ts-node: ^9.1.1
-      typescript: ^4.1.3
+      ts-node: 9.1.1
+      typescript: 4.1.3
   ankylos-config-eslint:
     dependencies:
       '@kiwi/eslint-config': 1.7.0_typescript@4.1.3
@@ -65,12 +65,12 @@ importers:
       typescript: 4.1.3
     specifiers:
       '@kiwi/eslint-config': 1.7.0
-      typescript: ^4.1.3
+      typescript: 4.1.3
   ankylos-config-prettier:
     devDependencies:
       typescript: 4.1.3
     specifiers:
-      typescript: ^4.1.3
+      typescript: 4.1.3
   ankylos-preset-next:
     specifiers: {}
   ankylos-template-editorconfig:
@@ -82,6 +82,8 @@ importers:
   ankylos-template-husky:
     specifiers: {}
   ankylos-template-markdownlint:
+    specifiers: {}
+  ankylos-template-package:
     specifiers: {}
   ankylos-template-pnpm:
     specifiers: {}
@@ -95,7 +97,7 @@ importers:
     devDependencies:
       typescript: 4.1.3
     specifiers:
-      typescript: ^4.1.3
+      typescript: 4.1.3
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.12.11:
