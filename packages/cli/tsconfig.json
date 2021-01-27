@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"rootDir": "src/",
 		"outDir": "dist/",
-		"isolatedModules": false
+		"isolatedModules": false,
+		"noImplicitAny": true
 	},
 	"include": ["src/**/*.ts"],
 	"exclude": ["dist/*"]

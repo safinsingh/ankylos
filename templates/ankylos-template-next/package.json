@@ -1,7 +1,7 @@
 {
-	"name": "@ankylos/types",
+	"name": "@ankylos/template-next",
 	"version": "0.1.0",
-	"description": "Common type definitions for ankylos; meant for internal use",
+	"description": "Next.JS template for anklyos",
 	"private": true,
 	"keywords": [
 		"typescript"
@@ -17,7 +17,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/safinsingh/ankylos",
-		"directory": "packages/types"
+		"directory": "templates/ankylos-template-next"
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
@@ -31,7 +31,7 @@
 	},
 	"devDependencies": {
 		"typescript": "^4.1.3",
-		"@ankylos/types": "file:../../packages/types"
+		"@ankylos/types": "workspace:^0.1.0"
 	},
 	"publishConfig": {
 		"access": "public"
