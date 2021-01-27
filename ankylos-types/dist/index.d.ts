@@ -1,23 +1,17 @@
 export declare type AnkylosConfig = {
-    eslint: boolean | [
-        boolean,
-        {
-            next: boolean;
-        }
-    ];
-    prettier: boolean;
-    editorConfig: boolean;
-    husky: boolean;
-    vscode: boolean;
-    githubCI: boolean;
-    markdownlint: boolean;
-    name: string;
-    description: string;
-    keywords: string;
+    type: 'template';
+    templates: Array<'editorconfig' | 'eslint' | 'github' | 'husky' | 'markdownlint' | 'pnpm' | 'prettier' | 'renovate' | 'vscode'>;
     deps: string[];
     devDeps: string[];
-    scripts: {
+    scripts?: {
         [name: string]: string;
     };
-    license: 'AGPL-3.0' | 'MPL-2.0';
+    name?: string;
+    description?: string;
+    keywords?: string;
+    license?: 'AGPL-3.0' | 'MPL-2.0';
+} | {
+    type: 'preset';
+    paths?: string[];
+    pin: string;
 };

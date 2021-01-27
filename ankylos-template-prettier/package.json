@@ -21,14 +21,14 @@
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
-		"build": "tsc",
 		"fmt": "prettier --write '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"peerDependencies": {
-		"@ankylos/cli": "workspace:^0.2.0"
+		"@ankylos/cli": "workspace:^0.2.0",
+		"prettier": "2.2.1"
 	},
 	"publishConfig": {
 		"access": "public"

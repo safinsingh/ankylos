@@ -22,7 +22,6 @@
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
-		"build": "tsc",
 		"fmt": "prettier --write '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",

@@ -1,6 +1,7 @@
 import type { GluegunToolbox } from 'gluegun'
 import { existsSync } from 'fs'
 import path from 'path'
+import type { AnkylosConfig } from '@ankylos/types'
 
 import { fail } from '../logger'
 
@@ -14,9 +15,14 @@ export default {
 			)
 		}
 
+		// lol screw you eslint
+		// eslint-disable-next-line
 		const config = require(path.resolve(
 			path.join(process.cwd(), 'ankylos.config.js')
-		))
-		console.log(config)
+		)) as Partial<AnkylosConfig>
+
+		if (!(config?.type === 'preset')) {
+			fail('You cannot bootstrap anything except a preset!')
+		}
 	}
 }

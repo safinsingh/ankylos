@@ -9,7 +9,7 @@ importers:
       prettier: 2.2.1
       typescript: 4.1.3
     specifiers:
-      '@ankylos/prettier-config': workspace:^0.1.0
+      '@ankylos/prettier-config': workspace:^0.2.0
       '@kiwi/eslint-config': ^1.7.0
       '@types/node': ^14.14.22
       eslint: ^7.18.0
@@ -30,6 +30,7 @@ importers:
       rmfr: 2.0.0
       tempy: 1.0.0
     devDependencies:
+      '@ankylos/types': link:../ankylos-types
       '@types/cli-progress': 3.8.0
       '@types/decompress': 4.2.3
       '@types/mv': 2.1.0
@@ -38,6 +39,7 @@ importers:
       ts-node: 9.1.1_typescript@4.1.3
       typescript: 4.1.3
     specifiers:
+      '@ankylos/types': workspace:^0.2.0
       '@types/cli-progress': ^3.8.0
       '@types/decompress': ^4.2.3
       '@types/mv': ^2.1.0
@@ -69,6 +71,26 @@ importers:
       typescript: 4.1.3
     specifiers:
       typescript: ^4.1.3
+  ankylos-preset-next:
+    specifiers: {}
+  ankylos-template-editorconfig:
+    specifiers: {}
+  ankylos-template-eslint:
+    specifiers: {}
+  ankylos-template-github:
+    specifiers: {}
+  ankylos-template-husky:
+    specifiers: {}
+  ankylos-template-markdownlint:
+    specifiers: {}
+  ankylos-template-pnpm:
+    specifiers: {}
+  ankylos-template-prettier:
+    specifiers: {}
+  ankylos-template-renovate:
+    specifiers: {}
+  ankylos-template-vscode:
+    specifiers: {}
   ankylos-types:
     devDependencies:
       typescript: 4.1.3

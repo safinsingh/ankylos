@@ -1,5 +1,4 @@
 declare const _default: {
-    root: boolean;
     extends: string[];
     rules: {
         'no-await-in-loop': number;

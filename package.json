@@ -28,7 +28,7 @@
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"devDependencies": {
-		"@ankylos/prettier-config": "workspace:^0.1.0",
+		"@ankylos/prettier-config": "workspace:^0.2.0",
 		"@kiwi/eslint-config": "^1.7.0",
 		"@types/node": "^14.14.22",
 		"eslint": "^7.18.0",

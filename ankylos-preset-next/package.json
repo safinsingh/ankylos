@@ -1,13 +1,13 @@
 {
-	"name": "@ankylos/template-husky",
-	"version": "0.2.0",
-	"description": "Configuration for Husky",
+	"name": "@ankylos/preset-next",
+	"version": "0.1.0",
+	"description": "Next.JS preset for anklyos",
+	"private": true,
 	"keywords": [
-		"husky",
-		"git",
-		"git-hooks"
+		"typescript",
+		"nextjs",
+		"react"
 	],
-	"main": "ankylos.config.js",
 	"homepage": "https://github.com/safinsingh/ankylos",
 	"license": "MPL-2.0",
 	"author": {
@@ -18,7 +18,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/safinsingh/ankylos",
-		"directory": "/ankylos-template-husky"
+		"directory": "/ankylos-preset-next"
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
@@ -26,9 +26,6 @@
 		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
-	},
-	"peerDependencies": {
-		"@ankylos/cli": "workspace:^0.2.0"
 	},
 	"publishConfig": {
 		"access": "public"

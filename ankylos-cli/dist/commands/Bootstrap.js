@@ -52,7 +52,9 @@ exports.default = {
                 logger_1.fail('Could not fine `ankylos.config.js`! Are you in an @ankylos project directory?');
             }
             config = require(path_1.default.resolve(path_1.default.join(process.cwd(), 'ankylos.config.js')));
-            console.log(config);
+            if (!(config.type === 'preset')) {
+                logger_1.fail('You cannot bootstrap anything except a preset!');
+            }
             return [2 /*return*/];
         });
     }); }
