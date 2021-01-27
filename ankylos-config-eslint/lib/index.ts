@@ -1,5 +1,4 @@
-module.exports = {
-	root: true,
+export = {
 	extends: ['@kiwi'],
 	rules: {
 		'no-await-in-loop': 0,

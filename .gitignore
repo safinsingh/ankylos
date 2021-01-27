@@ -1,5 +1,2 @@
 /node_modules
-/packages/*/node_modules
-/packages/*/dist
-/templates/*/node_modules
-/templates/*/dist
+/*/node_modules
