@@ -1,5 +1,4 @@
-'use strict'
-module.exports = {
+export = {
 	singleQuote: true,
 	trailingComma: 'none',
 	printWidth: 80,
