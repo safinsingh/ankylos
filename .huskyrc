@@ -1,0 +1,6 @@
+{
+	"hooks": {
+		"pre-commit": "pnpm run format:ci && pnpm run lint:ci",
+		"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+	}
+}

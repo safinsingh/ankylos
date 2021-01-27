@@ -1,0 +1,12 @@
+{
+	"default": true,
+	"MD003": {
+		"style": "atx"
+	},
+	"no-hard-tabs": true,
+	"MD013": false,
+	"MD029": {
+		"style": "ordered"
+	},
+	"MD041": false
+}
