@@ -1,3 +1,3 @@
-# @den/prettier-config
+# @ankylos/prettier-config
 
-A prettier configuration for use with other `@den` tools
+A prettier configuration for use with other `@ankylos` tools

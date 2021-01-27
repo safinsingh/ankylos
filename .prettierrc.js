@@ -1,1 +1,1 @@
-module.exports = require('@den/prettier-config')
+module.exports = require('@ankylos/prettier-config')

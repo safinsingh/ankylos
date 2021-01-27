@@ -1,7 +1,7 @@
 {
-	"name": "den",
+	"name": "ankylos",
 	"version": "0.1.0",
-	"description": "Configuration files & bootstrapping for Node projects",
+	"description": "Configuration files & bootstrapping scripts for Node projects",
 	"private": true,
 	"keywords": [
 		"prettier",
@@ -9,7 +9,7 @@
 		"formatting",
 		"linting"
 	],
-	"homepage": "https://github.com/safinsingh/den",
+	"homepage": "https://github.com/safinsingh/ankylos",
 	"license": "MPL-2.0",
 	"author": {
 		"name": "Safin Singh",
@@ -18,7 +18,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/safinsingh/den"
+		"url": "https://github.com/safinsingh/ankylos"
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
@@ -28,9 +28,7 @@
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^11.0.0",
-		"@commitlint/config-conventional": "^11.0.0",
-		"@den/prettier-config": "workspace:^0.1.0",
+		"@ankylos/prettier-config": "workspace:^0.1.0",
 		"@kiwi/eslint-config": "^1.7.0",
 		"@types/node": "^14.14.22",
 		"eslint": "^7.18.0",

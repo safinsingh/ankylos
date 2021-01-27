@@ -1,13 +1,11 @@
 {
-	"name": "@ankylos/prettier-config",
+	"name": "@ankylos/types",
 	"version": "0.1.0",
-	"description": "Configuration for Prettier",
+	"description": "Common type definitions for ankylos; meant for internal use",
 	"keywords": [
-		"prettier",
-		"formatting",
-		"style"
+		"typescript"
 	],
-	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"homepage": "https://github.com/safinsingh/ankylos",
 	"license": "MPL-2.0",
 	"author": {
@@ -18,7 +16,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/safinsingh/ankylos",
-		"directory": "packages/prettier-config"
+		"directory": "packages/types"
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
