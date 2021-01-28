@@ -27,7 +27,7 @@
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"peerDependencies": {
-		"@ankylos/cli": "workspace:^1.3.0",
+		"@ankylos/cli": "latest",
 		"eslint": "7.18.0"
 	},
 	"publishConfig": {

@@ -28,7 +28,7 @@
 		"prepublishOnly": "pnpm build"
 	},
 	"devDependencies": {
-		"@ankylos/cli": "workspace:^1.3.0",
+		"@ankylos/cli": "latest",
 		"typescript": "4.1.3"
 	},
 	"publishConfig": {

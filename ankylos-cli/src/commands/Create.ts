@@ -4,7 +4,7 @@ import { promisify } from 'util'
 import fs from 'fs-extra'
 import path from 'path'
 import type { GluegunToolbox } from 'gluegun'
-import getNpmTarballUrl from 'get-npm-tarball-url'
+import { getLatestTarballUrl } from '../npm'
 import got from 'got'
 import tempy from 'tempy'
 import { SingleBar, Presets } from 'cli-progress'
@@ -40,7 +40,7 @@ export default {
 		}
 
 		info(`Downloading tarball for @ankylos/preset-${preset}...`)
-		const url = getNpmTarballUrl(`@ankylos/preset-${preset}`, '1.3.0')
+		const url = await getLatestTarballUrl(`@ankylos/preset-${preset}`)
 		const loc = tempy.file({ extension: '.tar.gz' })
 
 		const downloadStream = got.stream(url)

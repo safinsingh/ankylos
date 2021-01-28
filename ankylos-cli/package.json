@@ -33,7 +33,7 @@
 		"prepublishOnly": "pnpm build"
 	},
 	"devDependencies": {
-		"@ankylos/types": "workspace:^1.3.0",
+		"@ankylos/types": "latest",
 		"@types/cli-progress": "3.8.0",
 		"@types/decompress": "4.2.3",
 		"@types/fs-extra": "9.0.6",
