@@ -1,12 +1,10 @@
 import { bold, cyan, green, red, yellow, magenta } from 'chalk'
 
 // :)
-const { log } = console
+const { log, error } = console
 
 function logBuilder(ctx: string) {
-	const time = new Date().toLocaleString()
-
-	return `[ ${ctx} : ${time} ] =>`
+	return `[ ${ctx} ] =>`
 }
 
 export function info(message: string) {
@@ -22,7 +20,7 @@ export function success(message: string) {
 }
 
 export function fail(message: string) {
-	log(red(bold(logBuilder('fail'))), message)
+	error(red(bold(logBuilder('fail'))), message)
 	process.exit(1)
 }
 

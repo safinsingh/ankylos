@@ -1,6 +1,6 @@
 export type AnkylosConfig =
 	| {
-			type: 'template'
+			type: 'preset'
 			templates: Array<
 				| 'editorconfig'
 				| 'eslint'
@@ -23,7 +23,7 @@ export type AnkylosConfig =
 			devDeps?: string[]
 	  }
 	| {
-			type: 'preset'
+			type: 'template'
 			paths?: string[]
 			pin: string
 			deps?: string[]

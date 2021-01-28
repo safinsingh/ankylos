@@ -32,15 +32,15 @@ export default {
 			return
 		}
 
-		if (options.template !== 'node' && options.template !== 'next') {
-			fail("Key `template` must be of type 'node' | 'next'!")
+		if (options.preset !== 'node' && options.preset !== 'next') {
+			fail("Key `preset` must be of type 'node' | 'next'!")
 			return
 		}
 
-		info(`Downloading tarball for @ankylos/template-${options.template}...`)
+		info(`Downloading tarball for @ankylos/preset-${options.preset}...`)
 		const url = getNpmTarballUrl(
-			`@ankylos/template-${options.template}`,
-			'0.1.0'
+			`@ankylos/preset-${options.preset}`,
+			'0.2.0'
 		)
 		const loc = tempy.file({ extension: '.tar.gz' })
 
