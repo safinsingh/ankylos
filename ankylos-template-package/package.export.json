@@ -4,7 +4,7 @@
 	"description": "{{ description }}",
 	"keywords": {{ keywords }},
 	"main": "ankylos.config.js",
-	"homepage": "https://github.com/safainsingh/{{ name }}",
+	"homepage": "https://github.com/safinsingh/{{ name }}",
 	"license": "${{ license }}",
 	"author": {
 		"name": "Safin Singh",

@@ -6,7 +6,7 @@
 		"packagejson"
 	],
 	"main": "ankylos.config.js",
-	"homepage": "https://github.com/safainsingh/ankylos",
+	"homepage": "https://github.com/safinsingh/ankylos",
 	"license": "MPL-2.0",
 	"author": {
 		"name": "Safin Singh",
