@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/prettier-config",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "Configuration for Prettier",
 	"keywords": [
 		"prettier",

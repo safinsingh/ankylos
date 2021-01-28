@@ -93,12 +93,7 @@ const stage2 = async (
 	for (const tpl of templates ?? []) {
 		tplInfo.push(
 			// eslint-disable-next-line
-			require(path.join(
-				process.cwd(),
-				'node_modules',
-				'@ankylos',
-				`template-${tpl}`
-			))
+			require(path.join('node_modules', '@ankylos', `template-${tpl}`))
 		)
 	}
 
@@ -150,7 +145,6 @@ const stage3 = async (configuration: AnkylosConfig, prompt: GluegunPrompt) => {
 		let base = (
 			await fs.readFile(
 				path.join(
-					process.cwd(),
 					'node_modules',
 					'@ankylos',
 					'template-package',
@@ -172,11 +166,7 @@ const stage3 = async (configuration: AnkylosConfig, prompt: GluegunPrompt) => {
 		})
 
 		const currentPkg = JSON.parse(
-			(
-				await fs.readFile(
-					path.resolve(path.join(process.cwd(), 'package.json'))
-				)
-			).toString()
+			(await fs.readFile('package.json')).toString()
 		)
 
 		const baseParsed = JSON.parse(base)
@@ -194,10 +184,7 @@ const stage3 = async (configuration: AnkylosConfig, prompt: GluegunPrompt) => {
 			scripts: { ...baseParsed.scripts, ...configuration.scripts }
 		}
 
-		await fs.writeFile(
-			path.resolve(path.join(process.cwd(), 'package.json')),
-			JSON.stringify(newPkg, null, '\t')
-		)
+		await fs.writeFile('package.json', JSON.stringify(newPkg, null, '\t'))
 	}
 
 	success('Stage 3 bootstrap is complete!')
@@ -206,30 +193,28 @@ const stage3 = async (configuration: AnkylosConfig, prompt: GluegunPrompt) => {
 const stage4 = async (configuration: AnkylosPresetConfig) => {
 	const { templates } = configuration
 
-	for (const tpl of templates ?? []) {
-		const dir = path.join(
-			process.cwd(),
-			'node_modules',
-			'@ankylos',
-			`template-${tpl}`
-		)
+	await Promise.all(
+		(templates ?? []).map((tpl) => {
+			const dir = path.join('node_modules', '@ankylos', `template-${tpl}`)
 
-		// eslint-disable-next-line
-		const cfg = require(dir) as AnkylosTemplateConfig
-		await Promise.all(
-			(cfg.paths ?? []).map(async (p) => {
-				const fdir = path.dirname(path.resolve(p))
-				if (!fs.existsSync(fdir)) {
-					await fs.mkdir(fdir, { recursive: true })
-				}
+			// eslint-disable-next-line
+			const cfg = require(dir) as AnkylosTemplateConfig
 
-				fs.copy(path.join(dir, p), path.join(process.cwd(), p), {
-					overwrite: true,
-					recursive: true
+			return Promise.all(
+				(cfg.paths ?? []).map(async (p) => {
+					const fdir = path.dirname(path.resolve(p))
+					if (!fs.existsSync(fdir)) {
+						await fs.mkdir(fdir, { recursive: true })
+					}
+
+					await fs.copy(path.join(dir, p), p, {
+						overwrite: true,
+						recursive: true
+					})
 				})
-			})
-		)
-	}
+			)
+		})
+	)
 
 	success('Stage 4 bootstrap is complete!')
 }
@@ -250,9 +235,7 @@ const run = async (toolbox: GluegunToolbox) => {
 
 	// lol screw you eslint
 	// eslint-disable-next-line
-	const config = require(path.resolve(
-		path.join(process.cwd(), 'ankylos.config.js')
-	)) as AnkylosConfig
+	const config = require('ankylos.config.js') as AnkylosConfig
 
 	if (config?.type !== 'preset') {
 		fail('You cannot bootstrap anything except a preset!')
