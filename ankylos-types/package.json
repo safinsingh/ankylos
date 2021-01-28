@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/types",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Common type definitions for ankylos; meant for internal use",
 	"keywords": [
 		"typescript"
@@ -25,9 +25,6 @@
 		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
-	},
-	"peerDependencies": {
-		"prettier": "2.2.1"
 	},
 	"devDependencies": {
 		"typescript": "4.1.3"

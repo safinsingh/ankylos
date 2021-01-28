@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/template-editorconfig",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Configuration for EditorConfig",
 	"keywords": [
 		"editorconfig"
@@ -26,7 +26,7 @@
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"peerDependencies": {
-		"@ankylos/cli": "workspace:^1.0.0"
+		"@ankylos/cli": "workspace:^1.0.1"
 	},
 	"publishConfig": {
 		"access": "public"

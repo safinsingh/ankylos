@@ -1,5 +1,5 @@
 import Meta from '~/components/Meta'
-import '~/styles/root.css'
+import '~/styles/root.scss'
 
 const App = ({ Component, pageProps }) => (
 	<>

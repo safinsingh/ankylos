@@ -234,7 +234,7 @@ const stage4 = async (configuration: AnkylosPresetConfig) => {
 	success('Stage 4 bootstrap is complete!')
 }
 
-export const run = async (toolbox: GluegunToolbox) => {
+const run = async (toolbox: GluegunToolbox) => {
 	const {
 		print,
 		parameters: { options },
