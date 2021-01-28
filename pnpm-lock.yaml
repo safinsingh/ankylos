@@ -1,7 +1,6 @@
 importers:
   .:
     devDependencies:
-      '@ankylos/cli': link:ankylos-cli
       '@ankylos/eslint-config': link:ankylos-config-eslint
       '@ankylos/prettier-config': link:ankylos-config-prettier
       '@types/node': 14.14.22
@@ -10,9 +9,8 @@ importers:
       prettier: 2.2.1
       typescript: 4.1.3
     specifiers:
-      '@ankylos/cli': workspace:^1.2.0
-      '@ankylos/eslint-config': workspace:^1.2.0
-      '@ankylos/prettier-config': workspace:^1.2.0
+      '@ankylos/eslint-config': workspace:^1.3.0
+      '@ankylos/prettier-config': workspace:^1.3.0
       '@types/node': 14.14.22
       eslint: 7.18.0
       husky: 4.3.8
@@ -43,7 +41,7 @@ importers:
       ts-node: 9.1.1_typescript@4.1.3
       typescript: 4.1.3
     specifiers:
-      '@ankylos/types': workspace:^1.2.0
+      '@ankylos/types': workspace:^1.3.0
       '@types/cli-progress': 3.8.0
       '@types/decompress': 4.2.3
       '@types/fs-extra': 9.0.6
@@ -103,8 +101,10 @@ importers:
     specifiers: {}
   ankylos-types:
     devDependencies:
+      '@ankylos/cli': link:../ankylos-cli
       typescript: 4.1.3
     specifiers:
+      '@ankylos/cli': workspace:^1.3.0
       typescript: 4.1.3
 lockfileVersion: 5.2
 packages:
@@ -640,7 +640,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-TEM2iMIEQdJ2yjPJoSIsldnleVaAk1oW3DBVUykyOLsEsFmEc9kn+SFFPz+gl54KQNxlDnAwCXosOS9Okx2xAg==
-  /buffer-alloc/1.2.0:
+  /buffer-alloc/1.3.0:
     dependencies:
       buffer-alloc-unsafe: 1.1.0
       buffer-fill: 1.0.0
@@ -911,7 +911,7 @@ packages:
         optional: true
     resolution:
       integrity: sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
-  /decamelize/1.2.0:
+  /decamelize/1.3.0:
     dev: false
     engines:
       node: '>=0.10.0'
@@ -1431,7 +1431,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
-  /fast-diff/1.2.0:
+  /fast-diff/1.3.0:
     dev: false
     resolution:
       integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
@@ -1464,7 +1464,7 @@ packages:
       integrity: sha512-NL2Qc5L3iQEsyYzweq7qfgy5OtXCmGzGvhElGEd/SoFWEMOEczNh5s5ocaF01HDetxz+p8ecjNPA6cZxxIHmzA==
   /fd-slicer/1.1.0:
     dependencies:
-      pend: 1.2.0
+      pend: 1.3.0
     dev: false
     resolution:
       integrity: sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=
@@ -2547,7 +2547,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
-  /pend/1.2.0:
+  /pend/1.3.0:
     dev: false
     resolution:
       integrity: sha1-elfrVQpng/kRUzH89GY9XI4AelA=
@@ -2619,7 +2619,7 @@ packages:
       integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
   /prettier-linter-helpers/1.0.0:
     dependencies:
-      fast-diff: 1.2.0
+      fast-diff: 1.3.0
     dev: false
     engines:
       node: '>=6.0.0'
@@ -3052,7 +3052,7 @@ packages:
   /tar-stream/1.6.2:
     dependencies:
       bl: 1.2.3
-      buffer-alloc: 1.2.0
+      buffer-alloc: 1.3.0
       end-of-stream: 1.4.4
       fs-constants: 1.0.0
       readable-stream: 2.3.7
@@ -3264,7 +3264,7 @@ packages:
   /yargs-parser/16.1.0:
     dependencies:
       camelcase: 5.3.1
-      decamelize: 1.2.0
+      decamelize: 1.3.0
     dev: false
     resolution:
       integrity: sha512-H/V41UNZQPkUMIT5h5hiwg4QKIY1RPvoBV4XcjUbRM8Bk2oKqqyZ0DIEbTFZB0XjbtSPG8SAa/0DxCQmiRgzKg==

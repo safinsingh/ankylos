@@ -1,12 +1,26 @@
-import { bold, cyan, green } from 'chalk'
+import { bold, cyan } from 'chalk'
 
-export const HELP_MSG = `Version: ${green(bold('1.2.0'))}
-Usage:   ${cyan(bold('ankylos'))} [command] [flags]
-         ${cyan(bold('ankylos'))} [ -h | --help | -v | --version ]
+export const HELP_MSG = `${bold('Usage')}:
+	ankylos [ --help | --version ]
+	ankylos create <directory> --preset <next | node>
+	ankylos bootstrap [--skip <stages>]
 
-Commands:
-         ${bold('create, c')} <directory> --preset <pt>
-         ${bold('bootstrap, b')} [ -s | --skip ] <stages>
+${bold('Subcommands')}:
+	create, c         - clone, unzip, and unwrap a new preset
+	bootstrap, b      - bootstrap a newly cloned preset
+
+${bold('Flags')}:
+	-h, --help        - display this help message
+	-v, --version     - display the current version of ankylos
+	-p, --preset      - preset to clone from
+	-s, --skip        - skip the first n stags of the bootstrap process
+
+${bold('Arguments')}:
+	directory         - directory to clone preset into
+
+${bold('Examples')}:
+	ankylos create new-project --preset next
+	ankylos bootstrap
 `
 
 export const FINISH_CREATE_MSG = `

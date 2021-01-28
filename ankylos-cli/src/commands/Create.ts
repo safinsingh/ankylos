@@ -33,16 +33,14 @@ export default {
 			return
 		}
 
-		if (options.preset !== 'node' && options.preset !== 'next') {
+		const preset: string = options.preset ?? options.p ?? ''
+		if (preset !== 'node' && preset !== 'next') {
 			fail("Key `preset` must be of type 'node' | 'next'!")
 			return
 		}
 
-		info(`Downloading tarball for @ankylos/preset-${options.preset}...`)
-		const url = getNpmTarballUrl(
-			`@ankylos/preset-${options.preset}`,
-			'1.2.0'
-		)
+		info(`Downloading tarball for @ankylos/preset-${preset}...`)
+		const url = getNpmTarballUrl(`@ankylos/preset-${preset}`, '1.3.0')
 		const loc = tempy.file({ extension: '.tar.gz' })
 
 		const downloadStream = got.stream(url)

@@ -6,5 +6,8 @@
 	"files.associations": {
 		".huskyrc": "json",
 		".markdownlintrc": "json"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }

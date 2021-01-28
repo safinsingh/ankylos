@@ -55,9 +55,30 @@ Node projects. ([NPM Organization](https://www.npmjs.com/org/ankylos))
 
 ## Try it out
 
-With all of that said, feel free to try `ankylos` for yourself!
+With all of that said, feel free to try `ankylos` for yourself like so:
 
-```sh
-~$ pnpm install --global @ankylos/cli
-~$ ankylos --help
+```
+$ pnpm install --global @ankylos/cli
+$ ankylos --help
+Usage:
+  ankylos [ --help | --version ]
+  ankylos create <directory> --preset <next | node>
+  ankylos bootstrap [--skip <stages>]
+
+Subcommands:
+  create, c         - clone, unzip, and unwrap a new preset
+  bootstrap, b      - bootstrap a newly cloned project
+
+Flags:
+  -h, --help        - display this help message
+  -v, --version     - display the current version of ankylos
+  -p, --preset      - preset to clone from
+  -s, --skip        - skip the first n stags of the bootstrap process
+
+Arguments:
+  directory         - directory to clone preset into
+
+Examples:
+  ankylos create new-project --preset next
+  ankylos bootstrap
 ```
