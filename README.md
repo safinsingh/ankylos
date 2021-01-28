@@ -17,9 +17,9 @@ Node projects. ([NPM Organization](https://www.npmjs.com/org/ankylos))
    from the preset's `ankylos.config.js`, which describes behaviour for
    preset-specific dependencies, dev-dependencies, templates, and NPM scripts.
    For example, the `node` preset has the `editorconfig`, `eslint`, `github`,
-   `husky`, `markdownlint`, `package`, `pnpm`, `prettier`, `renovate`, and
-   `vscode` extensions enabled by default. Each of these plugins is an NPM
-   module published under the `@ankylos` organization and contain their own
+   `husky`, `markdownlint`, `package`, `prettier`, `renovate`, and `vscode`
+   extensions enabled by default. Each of these plugins is an NPM module
+   published under the `@ankylos` organization and contain their own
    `ankylos.config.js`. However, this configuration defines template-specific
    behaviour, such as files to preserve/copy and template-specific dependencies.
    Anyways, the `bootstrap` subcommand will initialize a 4-stage bootstrap

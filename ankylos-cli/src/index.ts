@@ -1,7 +1,7 @@
 import type { GluegunToolbox } from 'gluegun'
 import { build } from 'gluegun'
 
-import { HELP_MSG } from './help'
+import { DEFAULT_MSG, HELP_MSG } from './help'
 
 build('ankylos')
 	.src(__dirname)
@@ -13,6 +13,8 @@ build('ankylos')
 	})
 	.version()
 	.checkForUpdates(5)
-	.defaultCommand()
+	.defaultCommand({
+		run: (toolbox: GluegunToolbox) => toolbox.print.info(DEFAULT_MSG)
+	})
 	.create()
 	.run()

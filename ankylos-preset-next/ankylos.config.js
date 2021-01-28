@@ -7,7 +7,6 @@ module.exports = {
 		'husky',
 		'markdownlint',
 		'package',
-		'pnpm',
 		'prettier',
 		'renovate',
 		'vscode'

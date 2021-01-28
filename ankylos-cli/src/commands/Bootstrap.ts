@@ -93,7 +93,12 @@ const stage2 = async (
 	for (const tpl of templates ?? []) {
 		tplInfo.push(
 			// eslint-disable-next-line
-			require(path.join('node_modules', '@ankylos', `template-${tpl}`))
+			require(path.join(
+				process.cwd(),
+				'node_modules',
+				'@ankylos',
+				`template-${tpl}`
+			))
 		)
 	}
 
@@ -195,7 +200,12 @@ const stage4 = async (configuration: AnkylosPresetConfig) => {
 
 	await Promise.all(
 		(templates ?? []).map((tpl) => {
-			const dir = path.join('node_modules', '@ankylos', `template-${tpl}`)
+			const dir = path.join(
+				process.cwd(),
+				'node_modules',
+				'@ankylos',
+				`template-${tpl}`
+			)
 
 			// eslint-disable-next-line
 			const cfg = require(dir) as AnkylosTemplateConfig
@@ -235,7 +245,10 @@ const run = async (toolbox: GluegunToolbox) => {
 
 	// lol screw you eslint
 	// eslint-disable-next-line
-	const config = require('ankylos.config.js') as AnkylosConfig
+	const config = require(path.join(
+		process.cwd(),
+		'ankylos.config.js'
+	)) as AnkylosConfig
 
 	if (config?.type !== 'preset') {
 		fail('You cannot bootstrap anything except a preset!')

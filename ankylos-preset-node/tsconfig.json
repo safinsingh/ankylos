@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"lib": ["ESNext"],
+		"lib": ["ESNext", "dom"],
 		"target": "es5",
 		"strict": true,
 		"allowSyntheticDefaultImports": true,
@@ -9,7 +9,7 @@
 		"noImplicitAny": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./src/*"],
+			"~/*": ["./src/*"]
 		}
 	},
 	"include": ["**/*.ts"],

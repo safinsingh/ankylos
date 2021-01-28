@@ -1,7 +1,7 @@
 import { bold, cyan } from 'chalk'
 
 export const HELP_MSG = `${bold('Usage')}:
-	ankylos [ --help | --version ]
+	ankylos [--help | --version]
 	ankylos create <directory> --preset <next | node>
 	ankylos bootstrap [--skip <stages>]
 
@@ -23,6 +23,14 @@ ${bold('Examples')}:
 	ankylos bootstrap
 `
 
+export const DEFAULT_MSG = `${bold('Usage')}:
+	ankylos [--help | --version]
+	ankylos create <directory> --preset <next | node>
+	ankylos bootstrap [--skip <stages>]
+
+Run ${bold('ankylos')} with ${bold('--help')} for more information!
+`
+
 export const FINISH_CREATE_MSG = `
 ${bold(
 	'ankylos'
@@ -37,6 +45,5 @@ ${bold(
 	'ankylos'
 )} has finished bootstrapping your project! Run the following to get started:
 
-    ${bold(`${cyan('~$')} pnpm install`)}
     ${bold(`${cyan('~$')} code .`)}
 `
