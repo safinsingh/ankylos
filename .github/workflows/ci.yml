@@ -12,12 +12,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-    - uses: pnpm/action-setup@v1.2.1
-      with:
-        version: 5.15.2
-        run_install: |
-          - recursive: true
-      - run: pnpm --recursive build
+      - uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.15.2
+          run_install: |
+            - recursive: true
+        - run: pnpm --recursive build
   fmt:
     runs-on: ubuntu-latest
     steps:
@@ -25,21 +25,21 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-    - uses: pnpm/action-setup@v1.2.1
-      with:
-        version: 5.15.2
-        run_install: |
-          - recursive: true
-      - run: pnpm --recursive fmt:ci
+      - uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.15.2
+          run_install: |
+            - recursive: true
+        - run: pnpm --recursive fmt:ci
   lint:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-    - uses: pnpm/action-setup@v1.2.1
-      with:
-        version: 5.15.2
-        run_install: |
-          - recursive: true
-      - run: pnpm --recursive lint:ci
+      - uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.15.2
+          run_install: |
+            - recursive: true
+        - run: pnpm --recursive lint:ci
