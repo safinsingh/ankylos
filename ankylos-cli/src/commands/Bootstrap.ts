@@ -1,12 +1,18 @@
-import type { GluegunPrint, GluegunToolbox } from 'gluegun'
-import { existsSync } from 'fs'
+import type { GluegunPrint, GluegunPrompt, GluegunToolbox } from 'gluegun'
+import fs from 'fs-extra'
 import path from 'path'
-import type { AnkylosConfig } from '@ankylos/types'
+import type {
+	AnkylosConfig,
+	AnkylosPresetConfig,
+	AnkylosTemplateConfig
+} from '@ankylos/types'
 import { promisify } from 'util'
 import child_process, { exec as cbExec } from 'child_process'
 import { bold, green } from 'chalk'
+import type { PromptOptions } from 'gluegun/build/types/toolbox/prompt-enquirer-types'
 
 import { fail, success } from '../logger'
+import { FINISH_MSG } from '../help'
 
 const exec = promisify(cbExec).bind(child_process)
 
@@ -46,7 +52,7 @@ const installDevDeps = async (print: GluegunPrint, devDeps?: string[]) => {
 }
 
 const stage1 = async (
-	configuration: Partial<AnkylosConfig>,
+	configuration: AnkylosPresetConfig,
 	print: GluegunPrint
 ) => {
 	if (configuration?.type !== 'preset') return
@@ -77,10 +83,10 @@ const stage1 = async (
 }
 
 const stage2 = async (
-	configuration: Partial<AnkylosConfig>,
+	configuration: AnkylosPresetConfig,
 	print: GluegunPrint
 ) => {
-	if (configuration?.type !== 'preset') return
+	if (configuration?.type !== 'preset') return []
 	const { templates } = configuration
 
 	const tplInfo: AnkylosConfig[] = []
@@ -109,62 +115,184 @@ const stage2 = async (
 	await installDevDeps(print, tplDeps.devDeps)
 
 	success('Stage 2 bootstrap is complete!')
-	return tplInfo ?? []
+}
+
+const stage3 = async (configuration: AnkylosConfig, prompt: GluegunPrompt) => {
+	if (configuration?.type !== 'preset') return
+	const { ask } = prompt
+
+	const questions: PromptOptions[] = [
+		{
+			type: 'input',
+			name: 'name',
+			message: 'Project name?'
+		},
+		{
+			type: 'input',
+			name: 'description',
+			message: 'Project description?'
+		},
+		{
+			type: 'input',
+			name: 'keywords',
+			message: 'Project keywords? (separate with spaces)'
+		},
+		{
+			type: 'select',
+			name: 'license',
+			message: 'Project license?',
+			choices: ['MPL-2.0', 'AGPL-3.0']
+		}
+	]
+
+	const { name, description, keywords, license } = await ask(questions)
+	if (configuration.templates.includes('package')) {
+		let base = (
+			await fs.readFile(
+				path.join(
+					process.cwd(),
+					'node_modules',
+					'@ankylos',
+					'template-package',
+					'package.export.json'
+				)
+			)
+		).toString()
+
+		Object.entries({
+			'{{ name }}': name.replace(' ', '-'),
+			'{{ description }}': description,
+			'{{ license }}': license,
+			'{{ keywords }}': `[${keywords
+				.split(' ')
+				.map((k) => `"${k}"`)
+				.join(', ')}]`
+		}).forEach(([k, v]) => {
+			base = base.replaceAll(k, v)
+		})
+
+		const currentPkg = JSON.parse(
+			(
+				await fs.readFile(
+					path.resolve(path.join(process.cwd(), 'package.json'))
+				)
+			).toString()
+		)
+
+		const baseParsed = JSON.parse(base)
+		const newPkg = {
+			...baseParsed,
+			dependencies: {
+				...currentPkg.dependencies
+			},
+			devDependencies: {
+				...currentPkg.devDependencies
+			},
+			peerDependencies: {
+				...currentPkg.devDependencies
+			},
+			scripts: { ...baseParsed.scripts, ...configuration.scripts }
+		}
+
+		await fs.writeFile(
+			path.resolve(path.join(process.cwd(), 'package.json')),
+			JSON.stringify(newPkg, null, '\t')
+		)
+	}
+
+	success('Stage 3 bootstrap is complete!')
+}
+
+const stage4 = async (configuration: AnkylosPresetConfig) => {
+	const { templates } = configuration
+
+	for (const tpl of templates ?? []) {
+		const dir = path.join(
+			process.cwd(),
+			'node_modules',
+			'@ankylos',
+			`template-${tpl}`
+		)
+
+		// eslint-disable-next-line
+		const cfg = require(dir) as AnkylosTemplateConfig
+		await Promise.all(
+			(cfg.paths ?? []).map(async (p) => {
+				const fdir = path.dirname(path.resolve(p))
+				if (!fs.existsSync(fdir)) {
+					await fs.mkdir(fdir, { recursive: true })
+				}
+
+				fs.copy(path.join(dir, p), path.join(process.cwd(), p), {
+					overwrite: true,
+					recursive: true
+				})
+			})
+		)
+	}
+
+	success('Stage 4 bootstrap is complete!')
+}
+
+export const run = async (toolbox: GluegunToolbox) => {
+	const {
+		print,
+		parameters: { options },
+		prompt
+	} = toolbox
+
+	const skip = options.skip ?? options.s ?? 0
+	if (!fs.existsSync('ankylos.config.js')) {
+		fail(
+			'Could not fine `ankylos.config.js`! Are you in an @ankylos project directory?'
+		)
+	}
+
+	// lol screw you eslint
+	// eslint-disable-next-line
+	const config = require(path.resolve(
+		path.join(process.cwd(), 'ankylos.config.js')
+	)) as AnkylosConfig
+
+	if (config?.type !== 'preset') {
+		fail('You cannot bootstrap anything except a preset!')
+		return
+	}
+
+	/* STAGE 1 BOOTSTRAP
+	 * Install all dependencies
+	 * Install all dev dependencies
+	 * Install all plugins
+	 */
+
+	if (skip < 1) await stage1(config, print)
+
+	/* STAGE 2 BOOTSTRAP
+	 * Install all dependencies of templates
+	 * Install all dev dependencies of templates
+	 */
+
+	if (skip < 2) await stage2(config, print)
+
+	/* STAGE 3 BOOTSTRAP
+	 * Ask for project metadata
+	 * Correctly fill in variables for package.json in temp file
+	 * Merge package.json, write to it FORMATTED
+	 */
+
+	if (skip < 3) await stage3(config, prompt)
+
+	/* STAGE 4 BOOTSTRAP
+	 * Recursively copy paths from templates
+	 */
+	if (skip < 4) await stage4(config)
+
+	await fs.unlink('ankylos.config.js')
+	console.log(FINISH_MSG)
 }
 
 export default {
 	name: 'bootstrap',
 	alias: 'b',
-	run: async (toolbox: GluegunToolbox) => {
-		const {
-			print,
-			parameters: { options }
-		} = toolbox
-
-		const skip = options.skip ?? options.s ?? 0
-		if (!existsSync('ankylos.config.js')) {
-			fail(
-				'Could not fine `ankylos.config.js`! Are you in an @ankylos project directory?'
-			)
-		}
-
-		// lol screw you eslint
-		// eslint-disable-next-line
-		const config = require(path.resolve(
-			path.join(process.cwd(), 'ankylos.config.js')
-		)) as Partial<AnkylosConfig>
-
-		if (config?.type !== 'preset') {
-			fail('You cannot bootstrap anything except a preset!')
-			return
-		}
-
-		/* STAGE 1 BOOTSTRAP
-		 * Install all dependencies
-		 * Install all dev dependencies
-		 * Install all plugins
-		 */
-
-		if (skip < 1) await stage1(config, print)
-
-		/* STAGE 2 BOOTSTRAP
-		 * Install all dependencies of templates
-		 * Install all dev dependencies of templates
-		 */
-
-		//  TODO: think about skip here... tplInfo is required but i guess i could abstract
-		await stage2(config, print)
-
-		/* STAGE 3 BOOTSTRAP
-		 * Ask for project metadata
-		 * Correctly fill in variables for package.json in temp file
-		 * Merge package.json, write to it FORMATTED
-		 */
-
-		/* STAGE 4 BOOTSTRAP
-		 * Recursively copy paths from templates
-		 * Fill in template variables
-		 * Clean out dev dependencies and call pnpm i one last time
-		 */
-	}
+	run
 }

@@ -8,3 +8,21 @@ Usage:   ${cyan(bold('ankylos'))} [command] [flags]
 Commands:
          ${bold('create, c')} <directory> --preset <pt>
          ${bold('bootstrap, b')} [ -s | --skip ] <stages>`
+
+export const FINISH_CREATE_MSG = `
+${bold(
+	'ankylos'
+)} has finished creating your project! You can bootstrap it with the following:
+
+    ${bold(`${cyan('~$')} cd <project>`)}
+    ${bold(`${cyan('~$')} ankylos bootstrap`)}
+`
+
+export const FINISH_MSG = `
+${bold(
+	'ankylos'
+)} has finished bootstrapping your project! Run the following to get started:
+
+    ${bold(`${cyan('~$')} pnpm install`)}
+    ${bold(`${cyan('~$')} code .`)}
+`

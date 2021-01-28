@@ -1,7 +1,7 @@
 import { createWriteStream, existsSync } from 'fs'
 import stream from 'stream'
 import { promisify } from 'util'
-import fs from 'fs/promises'
+import fs from 'fs-extra'
 import path from 'path'
 import type { GluegunToolbox } from 'gluegun'
 import getNpmTarballUrl from 'get-npm-tarball-url'
@@ -16,6 +16,7 @@ import fg from 'fast-glob'
 import decompressTargz from 'decompress-targz'
 
 import { fail, info, success, rawInfo } from '../logger'
+import { FINISH_CREATE_MSG } from '../help'
 
 const pipeline = promisify(stream.pipeline)
 
@@ -94,5 +95,7 @@ export default {
 		// TODO: what if they have a file/directory named 'package'?
 		await rmfr(path.join(first, 'package'))
 		success(`Unzipped and unwrapped tarball to ${first}!`)
+
+		console.log(FINISH_CREATE_MSG)
 	}
 }

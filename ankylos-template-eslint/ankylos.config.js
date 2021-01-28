@@ -1,6 +1,5 @@
 module.exports = {
 	type: 'template',
-	pin: '0.2.0',
-	paths: ['.eslintrc.js'],
+	paths: ['.eslintrc.js', '.eslintignore'],
 	devDeps: ['eslint', '@ankylos/eslint-config']
 }

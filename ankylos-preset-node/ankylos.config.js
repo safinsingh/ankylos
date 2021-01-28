@@ -11,11 +11,10 @@ module.exports = {
 		'renovate',
 		'vscode'
 	],
-	deps: ['next', 'react', 'react-dom', 'sass'],
-	devDeps: ['@types/react', '@types/node', 'typescript'],
+	devDeps: ['ts-node', 'ts-node-dev', 'typescript'],
 	scripts: {
-		build: 'next build',
-		start: 'next start',
-		dev: 'next dev'
+		build: 'rm -rf dist/ && tsc',
+		start: 'ts-node src/index.ts',
+		dev: 'ts-node-dev src/index.ts'
 	}
 }

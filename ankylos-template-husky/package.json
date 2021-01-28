@@ -28,7 +28,8 @@
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"peerDependencies": {
-		"@ankylos/cli": "workspace:^0.2.0"
+		"@ankylos/cli": "workspace:^0.2.0",
+		"husky": "4.3.8"
 	},
 	"publishConfig": {
 		"access": "public"

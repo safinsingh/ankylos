@@ -15,6 +15,7 @@ export = {
 				]
 			}
 		],
-		'no-nested-ternary': 0
+		'no-nested-ternary': 0,
+		'max-params': ['error', 5]
 	}
 }

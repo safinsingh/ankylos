@@ -1,3 +1,3 @@
-# ankylos
+# @ankylos
 
-some tools for effective nodejs web & server-side development
+An effective tool for bootstrapping Node.js applications

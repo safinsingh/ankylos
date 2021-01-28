@@ -1,7 +1,7 @@
 {
 	"name": "@ankylos/preset-next",
 	"version": "0.2.0",
-	"description": "Next.JS preset for anklyos",
+	"description": "Next.JS preset for ankylos",
 	"keywords": [
 		"typescript",
 		"nextjs",

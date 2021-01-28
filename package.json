@@ -25,11 +25,12 @@
 		"fmt": "prettier --write '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
+		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet",
+		"ankylos": "ankylos"
 	},
 	"devDependencies": {
 		"@ankylos/prettier-config": "workspace:^0.2.0",
-		"@kiwi/eslint-config": "1.7.0",
+		"@ankylos/eslint-config": "workspace:^0.2.0",
 		"@types/node": "14.14.22",
 		"eslint": "7.18.0",
 		"husky": "4.3.8",
