@@ -6,6 +6,7 @@ module.exports = {
 		'github',
 		'husky',
 		'markdownlint',
+		'package',
 		'pnpm',
 		'prettier',
 		'renovate',

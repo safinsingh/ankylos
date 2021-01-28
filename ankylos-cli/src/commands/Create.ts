@@ -41,7 +41,7 @@ export default {
 		info(`Downloading tarball for @ankylos/preset-${options.preset}...`)
 		const url = getNpmTarballUrl(
 			`@ankylos/preset-${options.preset}`,
-			'1.1.0'
+			'1.2.0'
 		)
 		const loc = tempy.file({ extension: '.tar.gz' })
 

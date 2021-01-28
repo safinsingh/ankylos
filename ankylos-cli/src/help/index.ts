@@ -1,13 +1,13 @@
 import { bold, cyan, green } from 'chalk'
 
-export const HELP_MSG = `
-Version: ${green(bold('0.1.0'))}
+export const HELP_MSG = `Version: ${green(bold('1.2.0'))}
 Usage:   ${cyan(bold('ankylos'))} [command] [flags]
          ${cyan(bold('ankylos'))} [ -h | --help | -v | --version ]
 
 Commands:
          ${bold('create, c')} <directory> --preset <pt>
-         ${bold('bootstrap, b')} [ -s | --skip ] <stages>`
+         ${bold('bootstrap, b')} [ -s | --skip ] <stages>
+`
 
 export const FINISH_CREATE_MSG = `
 ${bold(
