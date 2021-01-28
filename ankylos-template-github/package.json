@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/template-github",
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"description": "Configuration for GitHub Actions",
 	"keywords": [
 		"github",
@@ -28,7 +28,7 @@
 		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"peerDependencies": {
-		"@ankylos/cli": "workspace:^0.2.0"
+		"@ankylos/cli": "workspace:^1.0.0"
 	},
 	"publishConfig": {
 		"access": "public"

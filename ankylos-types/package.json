@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/types",
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"description": "Common type definitions for ankylos; meant for internal use",
 	"keywords": [
 		"typescript"
