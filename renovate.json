@@ -4,5 +4,6 @@
 	"major": {
 		"automerge": false
 	},
-	"labels": ["dependencies"]
+	"labels": ["dependencies"],
+	"lockFileMaintenance": { "enabled": true }
 }
