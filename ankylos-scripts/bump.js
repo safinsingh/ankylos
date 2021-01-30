@@ -21,7 +21,7 @@ const main = async () => {
 	if (lvl === 'maj') idx = 0
 
 	let semver
-	const entries = fg.stream('../ankylos-*', { onlyDirectories: true })
+	const entries = fg.stream('./ankylos-*', { onlyDirectories: true })
 	for await (const directory of entries) {
 		const loc = join(cwd(), directory, 'package.json')
 		const raw = await fs.readFile(loc)
@@ -29,7 +29,7 @@ const main = async () => {
 
 		semver = pkg.version.split('.').map((v) => parseInt(v, 10))
 		semver[idx] += 1
-		for (let i = 0; i < idx; i++) {
+		for (let i = 0; i < 2 - idx; i++) {
 			semver[idx] = 0
 		}
 
@@ -37,8 +37,7 @@ const main = async () => {
 		await fs.writeFile(loc, `${JSON.stringify(pkg, null, '\t')}\n`)
 	}
 
-	await exec('git config --global user.name "Safin Singh"')
-	await exec('git config --global user.email "safin.singh@gmail.com"')
+	await exec('git add .')
 	await exec(
 		`git commit -m "Publish v${semver.map((i) => i.toString()).join('.')}"`
 	)

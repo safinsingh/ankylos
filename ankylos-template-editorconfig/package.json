@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/template-editorconfig",
-	"version": "1.3.0",
+	"version": "0.3.0",
 	"description": "Configuration for EditorConfig",
 	"keywords": [
 		"editorconfig"
