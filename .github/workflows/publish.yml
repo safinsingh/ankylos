@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '15'
       - run: npm install --global pnpm
-      - run: pnpm recursive run install
+      - run: pnpm recursive install
       - run: pnpm recursive run build
   fmt:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '15'
       - run: npm install --global pnpm
-      - run: pnpm recursive run install
+      - run: pnpm recursive install
       - run: pnpm run build:config
       - run: pnpm run fmt:ci
   lint:
@@ -34,6 +34,6 @@ jobs:
         with:
           node-version: '15'
       - run: npm install --global pnpm
-      - run: pnpm recursive run install
+      - run: pnpm recursive install
       - run: pnpm run build:config
       - run: pnpm run lint:ci
