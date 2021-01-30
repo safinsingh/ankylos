@@ -1,4 +1,4 @@
-# `@ankylos`
+# `@ankylos` ![CI](https://github.com/safinsingh/ankylos/workflows/CI/badge.svg)
 
 An opinionated set of configuration files & CLI for conveniently bootstrapping
 Node projects. ([NPM Organization](https://www.npmjs.com/org/ankylos))
