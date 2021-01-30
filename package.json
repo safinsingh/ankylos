@@ -1,6 +1,6 @@
 {
 	"name": "ankylos",
-	"version": "1.3.0",
+	"version": "2.0.0",
 	"description": "An opinionated set of configuration files & CLI for conveniently bootstrapping Node projects",
 	"private": true,
 	"keywords": [
@@ -31,8 +31,8 @@
 		"workflow": "pnpm start --prefix ankylos-scripts"
 	},
 	"devDependencies": {
-		"@ankylos/eslint-config": "latest",
-		"@ankylos/prettier-config": "latest",
+		"@ankylos/eslint-config": "workspace:^2.0.0",
+		"@ankylos/prettier-config": "workspace:^2.0.0",
 		"@types/node": "14.14.22",
 		"eslint": "7.18.0",
 		"husky": "4.3.8",

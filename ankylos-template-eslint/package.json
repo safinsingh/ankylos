@@ -1,6 +1,6 @@
 {
 	"name": "@ankylos/template-eslint",
-	"version": "1.3.0",
+	"version": "2.0.0",
 	"description": "Configuration for ESLint",
 	"keywords": [
 		"linting",
@@ -23,7 +23,7 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"peerDependencies": {
-		"@ankylos/cli": "latest",
+		"@ankylos/cli": "workspace:^2.0.0",
 		"eslint": "7.18.0"
 	},
 	"publishConfig": {
