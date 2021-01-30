@@ -22,11 +22,7 @@
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
-		"build": "rm -rf dist/ && tsc",
-		"fmt": "prettier --write '*/**/*.{js,ts,tsx,yml,scss,json}'",
-		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
-		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet",
+		"build": "[ -d 'dist' ] && rm -rf dist; tsc",
 		"prepublishOnly": "pnpm build"
 	},
 	"peerDependencies": {

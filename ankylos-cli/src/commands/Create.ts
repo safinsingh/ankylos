@@ -4,7 +4,6 @@ import { promisify } from 'util'
 import fs from 'fs-extra'
 import path from 'path'
 import type { GluegunToolbox } from 'gluegun'
-import { getLatestTarballUrl } from '../npm'
 import got from 'got'
 import tempy from 'tempy'
 import { SingleBar, Presets } from 'cli-progress'
@@ -15,6 +14,7 @@ import fg from 'fast-glob'
 // @ts-ignore
 import decompressTargz from 'decompress-targz'
 
+import { getLatestTarballUrl } from '../npm'
 import { fail, info, success, rawInfo } from '../logger'
 import { FINISH_CREATE_MSG } from '../help'
 

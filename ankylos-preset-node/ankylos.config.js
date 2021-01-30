@@ -13,7 +13,7 @@ module.exports = {
 	],
 	devDeps: ['ts-node', 'ts-node-dev', 'typescript'],
 	scripts: {
-		build: 'rm -rf dist/ && tsc',
+		build: '[ -d "dist" ] && rm -rf dist; tsc',
 		start: 'ts-node src/index.ts',
 		dev: 'ts-node-dev src/index.ts'
 	}

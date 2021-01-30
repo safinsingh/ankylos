@@ -8,7 +8,7 @@
 	],
 	"main": "dist/index.js",
 	"bin": {
-		"ankylos": "./dist/index.js"
+		"ankylos": "dist/index.js"
 	},
 	"homepage": "https://github.com/safinsingh/ankylos",
 	"license": "MPL-2.0",
@@ -24,16 +24,11 @@
 	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
-		"build": "rm -rf dist/ && tsc",
+		"build": "[ -d 'dist' ] && rm -rf dist; tsc",
 		"dev": "ts-node src/index.ts",
-		"fmt": "prettier --write '*/**/*.{js,ts,tsx,yml,scss,json}'",
-		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
-		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet",
 		"prepublishOnly": "pnpm build"
 	},
 	"devDependencies": {
-		"@ankylos/types": "latest",
 		"@types/cli-progress": "3.8.0",
 		"@types/decompress": "4.2.3",
 		"@types/fs-extra": "9.0.6",

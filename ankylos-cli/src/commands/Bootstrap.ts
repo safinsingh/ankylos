@@ -1,16 +1,16 @@
 import type { GluegunPrint, GluegunPrompt, GluegunToolbox } from 'gluegun'
 import fs from 'fs-extra'
 import path from 'path'
-import type {
-	AnkylosConfig,
-	AnkylosPresetConfig,
-	AnkylosTemplateConfig
-} from '@ankylos/types'
 import { promisify } from 'util'
 import child_process, { exec as cbExec } from 'child_process'
 import { bold, green } from 'chalk'
 import type { PromptOptions } from 'gluegun/build/types/toolbox/prompt-enquirer-types'
 
+import type {
+	AnkylosConfig,
+	AnkylosPresetConfig,
+	AnkylosTemplateConfig
+} from '../types'
 import { fail, success } from '../logger'
 import { FINISH_MSG } from '../help'
 

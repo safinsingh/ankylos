@@ -20,11 +20,7 @@
 		"directory": "/ankylos-template-prettier"
 	},
 	"scripts": {
-		"preinstall": "npx only-allow pnpm",
-		"fmt": "prettier --write '*/**/*.{js,ts,tsx,yml,scss,json}'",
-		"fmt:ci": "prettier --check '*/**/*.{js,ts,tsx,yml,scss,json}'",
-		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-		"lint:ci": "eslint '*/**/*.{js,ts,tsx}' --quiet"
+		"preinstall": "npx only-allow pnpm"
 	},
 	"peerDependencies": {
 		"@ankylos/cli": "latest",

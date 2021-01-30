@@ -29,6 +29,9 @@ const main = async () => {
 
 		semver = pkg.version.split('.').map((v) => parseInt(v, 10))
 		semver[idx] += 1
+		for (let i = 0; i < idx; i++) {
+			semver[idx] = 0
+		}
 
 		pkg.version = semver.map((i) => i.toString()).join('.')
 		await fs.writeFile(loc, `${JSON.stringify(pkg, null, '\t')}\n`)
