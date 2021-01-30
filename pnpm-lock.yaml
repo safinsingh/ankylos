@@ -634,14 +634,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-TEM2iMIEQdJ2yjPJoSIsldnleVaAk1oW3DBVUykyOLsEsFmEc9kn+SFFPz+gl54KQNxlDnAwCXosOS9Okx2xAg==
-  /buffer-alloc/1.3.0:
+  /buffer-alloc/1.2.0:
     dependencies:
       buffer-alloc-unsafe: 1.1.0
       buffer-fill: 1.0.0
     dev: false
     resolution:
       integrity: sha512-CFsHQgjtW1UChdXgbyJGtnm+O/uLQeZdtbDo8mfUgYXCHSM1wgrVxXm6bSyrUuErEb+4sYVGCzASBRot7zyrow==
-      tarball: buffer-alloc/-/buffer-alloc-1.3.0.tgz
   /buffer-crc32/0.2.13:
     dev: false
     resolution:
@@ -906,13 +905,12 @@ packages:
         optional: true
     resolution:
       integrity: sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
-  /decamelize/1.3.0:
+  /decamelize/1.2.0:
     dev: false
     engines:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
-      tarball: decamelize/-/decamelize-1.3.0.tgz
   /decompress-response/6.0.0:
     dependencies:
       mimic-response: 3.1.0
@@ -1067,10 +1065,10 @@ packages:
   /emoji-regex/8.0.0:
     resolution:
       integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
-  /emoji-regex/9.2.0:
+  /emoji-regex/9.2.1:
     dev: false
     resolution:
-      integrity: sha512-DNc3KFPK18bPdElMJnf/Pkv5TXhxFU3YFDEuGLDRtPmV4rkmCjBkCSEp22u6rBHdSN9Vlp/GK7k98prmE1Jgug==
+      integrity: sha512-117l1H6U4X3Krn+MrzYrL57d5H7siRHWraBs7s+LjRuFK7Fe7hJqnJ0skWlinqsycVLU5YAo6L8CsEYQ0V5prg==
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -1212,7 +1210,7 @@ packages:
       axe-core: 4.1.1
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.6
-      emoji-regex: 9.2.0
+      emoji-regex: 9.2.1
       has: 1.0.3
       jsx-ast-utils: 3.2.0
       language-tags: 1.0.5
@@ -3048,7 +3046,7 @@ packages:
   /tar-stream/1.6.2:
     dependencies:
       bl: 1.2.3
-      buffer-alloc: 1.3.0
+      buffer-alloc: 1.2.0
       end-of-stream: 1.4.4
       fs-constants: 1.0.0
       readable-stream: 2.3.7
@@ -3260,7 +3258,7 @@ packages:
   /yargs-parser/16.1.0:
     dependencies:
       camelcase: 5.3.1
-      decamelize: 1.3.0
+      decamelize: 1.2.0
     dev: false
     resolution:
       integrity: sha512-H/V41UNZQPkUMIT5h5hiwg4QKIY1RPvoBV4XcjUbRM8Bk2oKqqyZ0DIEbTFZB0XjbtSPG8SAa/0DxCQmiRgzKg==
