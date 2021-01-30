@@ -12,11 +12,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-      - uses: pnpm/action-setup@v1.2.1
-        with:
-          version: 5.15.2
-          run_install: |
-            - recursive: true
+      - run: npm install --global pnpm
       - run: pnpm recursive run build
   fmt:
     runs-on: ubuntu-latest
@@ -25,11 +21,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-      - uses: pnpm/action-setup@v1.2.1
-        with:
-          version: 5.15.2
-          run_install: |
-            - recursive: true
+      - run: npm install --global pnpm
       - run: pnpm run build:config
       - run: pnpm run fmt:ci
   lint:
@@ -39,10 +31,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-      - uses: pnpm/action-setup@v1.2.1
-        with:
-          version: 5.15.2
-          run_install: |
-            - recursive: true
+      - run: npm install --global pnpm
       - run: pnpm run build:config
       - run: pnpm run lint:ci
